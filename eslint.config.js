@@ -4,7 +4,13 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['**/dist/**', '**/node_modules/**', 'apps/api/uploads/**', 'apps/api/data/**'],
+    ignores: [
+      '**/dist/**',
+      '**/node_modules/**',
+      'apps/api/uploads/**',
+      'apps/api/data/**',
+      'db/*.mjs',
+    ],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,

@@ -4,7 +4,11 @@ import { useSession } from './app/session';
 import { ErrorState, Loading } from './components/states';
 import { ComingSoon } from './components/ComingSoon';
 import { useI18n } from './i18n';
+import { CalculatorProvider } from './features/calculator/context';
 import Home from './screens/Home';
+import CalculatorInput from './screens/calculator/CalculatorInput';
+import CalculatorResults from './screens/calculator/CalculatorResults';
+import CropDetail from './screens/calculator/CropDetail';
 
 function AuthGate({ children }: { children: ReactNode }) {
   const { status, error, retry } = useSession();
@@ -13,10 +17,6 @@ function AuthGate({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }
 
-function CalculatorPlaceholder() {
-  const { t } = useI18n();
-  return <ComingSoon title={t('home.calculator.title')} />;
-}
 function DiagnosePlaceholder() {
   const { t } = useI18n();
   return <ComingSoon title={t('home.diagnose.title')} />;
@@ -30,13 +30,17 @@ export default function App() {
   return (
     <AuthGate>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/calculator" element={<CalculatorPlaceholder />} />
-          <Route path="/diagnose" element={<DiagnosePlaceholder />} />
-          <Route path="/market" element={<MarketPlaceholder />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
+        <CalculatorProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/calculator" element={<CalculatorInput />} />
+            <Route path="/calculator/results" element={<CalculatorResults />} />
+            <Route path="/calculator/crop/:id" element={<CropDetail />} />
+            <Route path="/diagnose" element={<DiagnosePlaceholder />} />
+            <Route path="/market" element={<MarketPlaceholder />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </CalculatorProvider>
       </BrowserRouter>
     </AuthGate>
   );

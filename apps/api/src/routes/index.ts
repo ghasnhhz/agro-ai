@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { authRouter } from './auth.js';
+import { profitabilityRouter, referenceRouter } from './profitability.js';
 
 export const apiRouter = Router();
 
@@ -8,5 +9,7 @@ apiRouter.get('/ping', (_req, res) => {
 });
 
 // Feature routers (more land as milestones progress):
-//   /regions + /crops + /profitability (M2), /disease (M3), /listings + /uploads (M4).
+//   /disease (M3), /listings + /uploads (M4).
 apiRouter.use('/auth', authRouter);
+apiRouter.use('/', referenceRouter); // /regions, /crops
+apiRouter.use('/profitability', profitabilityRouter);
