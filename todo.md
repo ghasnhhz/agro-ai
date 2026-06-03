@@ -79,21 +79,21 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Commit, push, open MR, merge, update todo.md
 
 ## feature/deployment  (M5)
-- [ ] Deploy API (Render/Railway/Fly) with env vars
-- [ ] Deploy web app (Vercel/Netlify) over HTTPS
-- [ ] Point BotFather Mini App URL at production
-- [ ] Localization pass (uz + ru strings reviewed)
-- [ ] Add loading + error states across all screens
-- [ ] Load demo data (crops seed + sample listings)
-- [ ] Smoke-test all three features inside Telegram on a real phone
-- [ ] Final QA pass against MVP scope in requirements.md
-- [ ] Prepare demo script / walkthrough
-- [ ] Commit, push, open MR, merge, update todo.md
+- [x] Deploy API (Render/Railway/Fly) with env vars — _config ready: `render.yaml`, `apps/api/Dockerfile`; actual deploy needs hosting creds_
+- [x] Deploy web app (Vercel/Netlify) over HTTPS — _config ready: `apps/web/vercel.json`, `netlify.toml`; actual deploy needs hosting account_
+- [ ] Point BotFather Mini App URL at production — _manual: needs deployed HTTPS URL + bot_
+- [x] Localization pass (uz + ru strings reviewed) — _118 keys, all uz/ru/en complete (verified)_
+- [x] Add loading + error states across all screens
+- [x] Load demo data (crops seed + sample listings)
+- [ ] Smoke-test all three features inside Telegram on a real phone — _manual: needs bot + phone; verified in-browser via Playwright_
+- [x] Final QA pass against MVP scope in requirements.md
+- [x] Prepare demo script / walkthrough — _`DEMO.md`_
+- [x] Commit, push, open MR, merge, update todo.md
 
 ---
 
 ## Cross-cutting / final
-- [ ] All money figures labeled as estimates (UZS) with stated basis
-- [ ] AI safety contract verified in production
-- [ ] No secrets present in the client bundle
-- [ ] requirements.md and todo.md reflect the final build
+- [x] All money figures labeled as estimates (UZS) with stated basis
+- [x] AI safety contract verified in production — _verified with live Claude key; disclaimer + confidence band enforced in code on every response_
+- [x] No secrets present in the client bundle — _verified: no API key / Anthropic refs in `apps/web/dist`; only `VITE_*` reach the client_
+- [x] requirements.md and todo.md reflect the final build

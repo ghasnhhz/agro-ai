@@ -1,0 +1,40 @@
+# Render Blueprint for YerLab — deploys the API (web service) and the
+# Mini App (static site). Apply via Render dashboard "New > Blueprint".
+# Set secret env vars (BOT_TOKEN, ANTHROPIC_API_KEY, SESSION_SECRET) in the UI.
+
+services:
+  - type: web
+    name: yerlab-api
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build -w @yerlab/types && npm run build -w @yerlab/api
+    startCommand: node apps/api/dist/index.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: BOT_TOKEN
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        value: claude-sonnet-4-6
+      - key: WEB_ORIGIN
+        sync: false # set to your deployed web origin, e.g. https://yerlab.vercel.app
+
+  - type: web
+    name: yerlab-web
+    runtime: static
+    buildCommand: npm install && npm run build -w @yerlab/web
+    staticPublishPath: apps/web/dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false # set to the API origin + /api, e.g. https://yerlab-api.onrender.com/api
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

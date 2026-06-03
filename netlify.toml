@@ -1,0 +1,15 @@
+# Netlify deploy config for the YerLab web app (Mini App SPA).
+# Build from the repo root so npm workspaces resolve @yerlab/types.
+
+[build]
+  command = "npm install && npm run build -w @yerlab/web"
+  publish = "apps/web/dist"
+
+# SPA fallback so client-side routes (e.g. /market/:id) work on refresh.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Set VITE_API_BASE_URL in the Netlify UI to your deployed API, e.g.
+#   https://yerlab-api.onrender.com/api
