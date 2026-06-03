@@ -48,19 +48,19 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Commit, push, open MR, merge, update todo.md
 
 ## feature/disease-detection  (M3)
-- [ ] Add `disease_scans` table to schema
-- [ ] Configure image upload + storage (Supabase Storage)
-- [ ] Build Diagnose Upload screen (camera/upload + tips)
-- [ ] Client-side image compression + size/type validation
-- [ ] Build `POST /disease/analyze` calling the AI vision model
-- [ ] Write the safety-enforcing prompt (no certainty; confidence + alternatives + category + disclaimer)
-- [ ] Parse + validate AI JSON; normalize confidence band; always inject disclaimer
-- [ ] Add per-user rate limiting on the analyze endpoint
-- [ ] Build Diagnose Loading state
-- [ ] Build Diagnose Result screen (primary, confidence, alternatives, treatment category, prevention, prominent disclaimer)
-- [ ] Add graceful fallback if AI provider fails
-- [ ] Verify result NEVER shows false certainty and disclaimer always appears
-- [ ] Commit, push, open MR, merge, update todo.md
+- [x] Add `disease_scans` table to schema
+- [x] Configure image upload + storage (Supabase Storage) — _MVP: multipart/base64 upload, in-memory scan log; Supabase Storage is the documented prod path_
+- [x] Build Diagnose Upload screen (camera/upload + tips)
+- [x] Client-side image compression + size/type validation
+- [x] Build `POST /disease/analyze` calling the AI vision model
+- [x] Write the safety-enforcing prompt (no certainty; confidence + alternatives + category + disclaimer)
+- [x] Parse + validate AI JSON; normalize confidence band; always inject disclaimer
+- [x] Add per-user rate limiting on the analyze endpoint
+- [x] Build Diagnose Loading state
+- [x] Build Diagnose Result screen (primary, confidence, alternatives, treatment category, prevention, prominent disclaimer)
+- [x] Add graceful fallback if AI provider fails
+- [x] Verify result NEVER shows false certainty and disclaimer always appears — _verified live (Claude) + UI; disclaimer/confidence always set in code_
+- [x] Commit, push, open MR, merge, update todo.md
 
 ## feature/marketplace  (M4)
 - [ ] Add `listings` + `listing_photos` tables to schema

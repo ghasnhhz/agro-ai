@@ -48,3 +48,14 @@ create table if not exists crop_region (
   suitability text not null check (suitability in ('low','medium','high')),
   primary key (crop_id, region_id)
 );
+
+-- ---- M3: disease detection log ----
+
+create table if not exists disease_scans (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references users(id) on delete set null,
+  image_url text,
+  result_json jsonb not null,
+  confidence_band text not null check (confidence_band in ('low','medium','high')),
+  created_at timestamptz not null default now()
+);

@@ -114,6 +114,62 @@ export const strings: Record<string, Entry> = {
     en: 'This is an estimate (UZS). Real results depend on weather, care, and the market.',
   },
 
+  // ---- Disease detection ----
+  'dx.title': { uz: 'Kasallikni aniqlash', ru: 'Диагностика болезней', en: 'Disease Detection' },
+  'dx.upload.cta': { uz: 'Rasm yuklash yoki suratga olish', ru: 'Загрузить или сделать фото', en: 'Upload or take a photo' },
+  'dx.upload.tips.title': { uz: 'Yaxshi natija uchun', ru: 'Для лучшего результата', en: 'For the best result' },
+  'dx.upload.tip1': {
+    uz: "Kasallangan bargni kadr to'ldirib oling",
+    ru: 'Заполните кадр поражённым листом',
+    en: 'Fill the frame with the affected leaf',
+  },
+  'dx.upload.tip2': {
+    uz: "Yorug', tiniq joyda suratga oling",
+    ru: 'Снимайте при хорошем, чётком свете',
+    en: 'Shoot in good, sharp light',
+  },
+  'dx.upload.tip3': {
+    uz: 'Bitta o‘simlikka e’tibor qarating',
+    ru: 'Сфокусируйтесь на одном растении',
+    en: 'Focus on a single plant',
+  },
+  'dx.analyze': { uz: 'Tahlil qilish', ru: 'Анализировать', en: 'Analyze' },
+  'dx.change': { uz: 'Boshqa rasm', ru: 'Другое фото', en: 'Change photo' },
+  'dx.loading': { uz: 'Rasm tahlil qilinmoqda…', ru: 'Анализируем фото…', en: 'Analyzing the photo…' },
+  'dx.loading.hint': {
+    uz: 'Bu bir necha soniya olishi mumkin',
+    ru: 'Это может занять несколько секунд',
+    en: 'This may take a few seconds',
+  },
+  'dx.err.type': {
+    uz: 'Bu fayl turi qo‘llab-quvvatlanmaydi. JPEG, PNG yoki WebP yuklang.',
+    ru: 'Этот тип файла не поддерживается. Загрузите JPEG, PNG или WebP.',
+    en: 'That file type is not supported. Use JPEG, PNG, or WebP.',
+  },
+  'dx.err.large': {
+    uz: 'Rasm juda katta. Kichikroq rasm tanlang.',
+    ru: 'Изображение слишком большое. Выберите файл поменьше.',
+    en: 'The image is too large. Please choose a smaller photo.',
+  },
+  'dx.result.title': { uz: 'Tahlil natijasi', ru: 'Результат анализа', en: 'Analysis result' },
+  'dx.confidence': { uz: 'Ishonch darajasi', ru: 'Уровень уверенности', en: 'Confidence' },
+  'dx.alternatives': { uz: 'Boshqa ehtimollar', ru: 'Другие возможности', en: 'Other possibilities' },
+  'dx.cause': { uz: 'Ehtimoliy sabab', ru: 'Вероятная причина', en: 'Probable cause' },
+  'dx.treatment': { uz: 'Tavsiya etilgan chora (turi)', ru: 'Рекомендуемая мера (категория)', en: 'Recommended treatment (category)' },
+  'dx.guidance': { uz: 'Maslahat', ru: 'Рекомендация', en: 'Guidance' },
+  'dx.prevention': { uz: 'Oldini olish', ru: 'Профилактика', en: 'Prevention' },
+  'dx.again': { uz: 'Yana bir rasm tahlil qilish', ru: 'Проанализировать ещё', en: 'Analyze another photo' },
+  'dx.type.disease': { uz: 'Kasallik', ru: 'Болезнь', en: 'Disease' },
+  'dx.type.pest': { uz: 'Zararkunanda', ru: 'Вредитель', en: 'Pest' },
+  'dx.type.damage': { uz: 'Barg shikasti', ru: 'Повреждение', en: 'Leaf damage' },
+  'dx.type.deficiency': { uz: 'Ozuqa yetishmovchiligi', ru: 'Нехватка питания', en: 'Nutrient deficiency' },
+  'dx.type.unknown': { uz: 'Noma’lum', ru: 'Неизвестно', en: 'Unknown' },
+  'dx.fallback.note': {
+    uz: 'Avtomatik tahlil hozir cheklangan — bu umumiy, ehtiyotkor maslahat.',
+    ru: 'Автоанализ сейчас ограничен — это общий осторожный совет.',
+    en: 'Automatic analysis is limited right now — this is general, cautious advice.',
+  },
+
   // shared value labels
   'level.easy': { uz: 'Oson', ru: 'Лёгкая', en: 'Easy' },
   'level.medium': { uz: 'O‘rtacha', ru: 'Средняя', en: 'Medium' },
