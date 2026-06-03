@@ -33,19 +33,19 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Commit, push, open MR, merge, update todo.md
 
 ## feature/land-profitability  (M2)
-- [ ] Write `db/schema.sql` for users, regions, crops, crop_region
-- [ ] Create Supabase project; apply schema
-- [ ] Seed `regions` with Uzbekistan regions (uz/ru/en)
-- [ ] Seed `crops` (~15–25) with all economic fields
-- [ ] Seed `crop_region` suitability mappings
-- [ ] Build `GET /regions` endpoint
-- [ ] Build `POST /profitability/calculate` (filter by region + water, rank by goal, scale by size)
-- [ ] Validate request body (Zod) and return labeled estimates + assumptions
-- [ ] Build Calculator Input screen (region, size+unit, water, goal)
-- [ ] Build Calculator Results screen (ranked crop cards)
-- [ ] Build Crop Detail screen with full breakdown + estimate disclaimer
-- [ ] Verify numbers scale correctly for several sizes and both goals
-- [ ] Commit, push, open MR, merge, update todo.md
+- [x] Write `db/schema.sql` for users, regions, crops, crop_region
+- [ ] Create Supabase project; apply schema — _manual: needs DATABASE_URL; `db/schema.sql` + `db/seed.sql` ready to apply_
+- [x] Seed `regions` with Uzbekistan regions (uz/ru/en) — _14 regions in `data/regions.ts` + `db/seed.sql`_
+- [x] Seed `crops` (~15–25) with all economic fields — _20 crops in `data/crops.ts`_
+- [x] Seed `crop_region` suitability mappings — _baseline + regional overrides; 280 rows in seed_
+- [x] Build `GET /regions` endpoint
+- [x] Build `POST /profitability/calculate` (filter by region + water, rank by goal, scale by size)
+- [x] Validate request body (Zod) and return labeled estimates + assumptions
+- [x] Build Calculator Input screen (region, size+unit, water, goal)
+- [x] Build Calculator Results screen (ranked crop cards)
+- [x] Build Crop Detail screen with full breakdown + estimate disclaimer
+- [x] Verify numbers scale correctly for several sizes and both goals — _verified via Playwright + API tests_
+- [x] Commit, push, open MR, merge, update todo.md
 
 ## feature/disease-detection  (M3)
 - [ ] Add `disease_scans` table to schema

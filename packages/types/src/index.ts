@@ -72,6 +72,7 @@ export interface CalculateRequest {
   sizeUnit: SizeUnit;
   waterLevel: WaterLevel;
   goal: Goal;
+  locale?: Locale;
 }
 
 export interface CropResult {

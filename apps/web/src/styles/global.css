@@ -301,6 +301,49 @@ button {
 .muted {
   color: var(--hint);
 }
+.pos {
+  color: #2e8b57;
+}
+.neg {
+  color: #c0392b;
+}
+
+/* ---- Crop cards (calculator results) ---- */
+.crop-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  border: none;
+  width: 100%;
+}
+.crop-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.crop-name {
+  font-size: 17px;
+  font-weight: 600;
+}
+.crop-harvest {
+  font-size: 13px;
+  white-space: nowrap;
+}
+.crop-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.crop-money {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--secondary-bg);
+  padding-top: 8px;
+  font-size: 15px;
+}
 .row {
   display: flex;
   justify-content: space-between;
