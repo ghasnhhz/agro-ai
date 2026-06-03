@@ -82,11 +82,26 @@ All secrets live in `apps/api/.env` (gitignored). Only `VITE_*` vars reach the w
 3. In BotFather, set the **Mini App URL** / menu button to that HTTPS URL.
 4. Open the bot in Telegram and launch the Mini App.
 
-## Deployment (target)
+## Deployment
 
-- **Web** → Vercel / Netlify (HTTPS required by Telegram)
-- **API** → Render / Railway / Fly
-- **DB / storage** → Supabase (Postgres + Storage)
+HTTPS is required by Telegram for Mini Apps. Config files are included:
+
+| Target | File | Notes |
+|---|---|---|
+| Web → Vercel | `apps/web/vercel.json` | SPA rewrites. Root = repo; Build `npm run build -w @yerlab/web`; Output `apps/web/dist`. Set `VITE_API_BASE_URL`. |
+| Web → Netlify | `netlify.toml` | Build + SPA fallback. Set `VITE_API_BASE_URL`. |
+| API + Web → Render | `render.yaml` | Blueprint: API web service + static site. Set `BOT_TOKEN`, `ANTHROPIC_API_KEY`, `WEB_ORIGIN`. |
+| API → Docker | `apps/api/Dockerfile` | `docker build -f apps/api/Dockerfile -t yerlab-api .` |
+
+**Order:** deploy API first → copy its `https://…/api` URL into the web app's
+`VITE_API_BASE_URL` → deploy web → set the web origin in the API's `WEB_ORIGIN`
+→ point the BotFather Mini App URL at the web HTTPS URL.
+
+> The MVP stores images on the API's local disk (`/uploads`) and data in memory.
+> These reset on redeploy — fine for a demo. For production, wire `DATABASE_URL`
+> (apply `db/schema.sql` + `db/seed.sql`) and Supabase Storage.
+
+See [`DEMO.md`](./DEMO.md) for the demo walkthrough.
 
 ---
 
