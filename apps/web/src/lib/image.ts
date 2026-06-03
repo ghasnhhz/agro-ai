@@ -41,6 +41,33 @@ export async function compressImage(file: File): Promise<CompressedImage> {
   return { base64, mediaType: 'image/jpeg', previewUrl: jpegDataUrl };
 }
 
+/** Downscale + re-encode to a JPEG File (for multipart upload). */
+export async function compressImageToFile(file: File): Promise<File> {
+  if (!ALLOWED.includes(file.type)) throw new ImageError('unsupported-type');
+  if (file.size > MAX_INPUT_BYTES) throw new ImageError('too-large');
+
+  const img = await loadImage(await readAsDataUrl(file));
+  const scale = Math.min(1, MAX_DIM / Math.max(img.width, img.height));
+  const w = Math.round(img.width * scale);
+  const h = Math.round(img.height * scale);
+  const canvas = document.createElement('canvas');
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) throw new ImageError('canvas-unavailable');
+  ctx.drawImage(img, 0, 0, w, h);
+
+  const blob: Blob = await new Promise((resolve, reject) =>
+    canvas.toBlob(
+      (b) => (b ? resolve(b) : reject(new ImageError('encode-failed'))),
+      'image/jpeg',
+      0.8,
+    ),
+  );
+  const name = file.name.replace(/\.[^.]+$/, '') + '.jpg';
+  return new File([blob], name, { type: 'image/jpeg' });
+}
+
 function readAsDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();

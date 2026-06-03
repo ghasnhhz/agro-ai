@@ -3,6 +3,7 @@ import cors from 'cors';
 import { config, DEV_AUTH, AI_ENABLED } from './config.js';
 import { errorHandler, notFound } from './middleware/errorHandler.js';
 import { apiRouter } from './routes/index.js';
+import { uploadsDir } from './lib/paths.js';
 
 const app = express();
 
@@ -20,7 +21,7 @@ app.use(express.json({ limit: '15mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 // Serve locally stored uploads (listing & scan images) when no cloud storage.
-app.use('/uploads', express.static(new URL('../uploads', import.meta.url).pathname));
+app.use('/uploads', express.static(uploadsDir));
 
 app.get('/health', (_req, res) => {
   res.json({ ok: true, devAuth: DEV_AUTH, aiEnabled: AI_ENABLED });
