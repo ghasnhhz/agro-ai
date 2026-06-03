@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+apps/api/.env
+apps/web/.env
+
+# Uploads (local image storage)
+apps/api/uploads/
+!apps/api/uploads/.gitkeep
+
+# Local data persistence
+apps/api/data/*.json
+!apps/api/data/.gitkeep
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+Thumbs.db

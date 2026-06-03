@@ -1,0 +1,31 @@
+{
+  "name": "yerlab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "YerLab — Telegram Mini App helping people in Uzbekistan get more value from their land.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,magenta \"npm run dev -w @yerlab/api\" \"npm run dev -w @yerlab/web\"",
+    "dev:api": "npm run dev -w @yerlab/api",
+    "dev:web": "npm run dev -w @yerlab/web",
+    "build": "npm run build -w @yerlab/types && npm run build -w @yerlab/api && npm run build -w @yerlab/web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "concurrently": "^9.1.0",
+    "eslint": "^9.15.0",
+    "prettier": "^3.3.3",
+    "typescript-eslint": "^8.15.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
