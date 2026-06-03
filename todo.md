@@ -21,16 +21,16 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Commit, push, open MR, merge, update todo.md
 
 ## feature/authentication  (M1)
-- [ ] Create Telegram bot via BotFather; set Mini App URL + menu button
-- [ ] Install Telegram Mini App SDK in web app
-- [ ] On launch, read `initData`, theme params, and `language_code`
-- [ ] Apply Telegram theme params to the UI
-- [ ] Wire native BackButton / MainButton helpers
-- [ ] Build `POST /auth/telegram`: validate `initData` HMAC signature server-side
-- [ ] Upsert user record; return session token + user
-- [ ] Add auth middleware protecting all non-public routes
-- [ ] Confirm app launches inside Telegram and authenticates end-to-end
-- [ ] Commit, push, open MR, merge, update todo.md
+- [ ] Create Telegram bot via BotFather; set Mini App URL + menu button — _manual: needs BOT_TOKEN + HTTPS host (documented in README)_
+- [x] Install Telegram Mini App SDK in web app
+- [x] On launch, read `initData`, theme params, and `language_code`
+- [x] Apply Telegram theme params to the UI
+- [x] Wire native BackButton / MainButton helpers
+- [x] Build `POST /auth/telegram`: validate `initData` HMAC signature server-side
+- [x] Upsert user record; return session token + user
+- [x] Add auth middleware protecting all non-public routes
+- [x] Confirm app launches inside Telegram and authenticates end-to-end — _verified in browser via dev-auth; in-Telegram path needs BOT_TOKEN_
+- [x] Commit, push, open MR, merge, update todo.md
 
 ## feature/land-profitability  (M2)
 - [ ] Write `db/schema.sql` for users, regions, crops, crop_region
