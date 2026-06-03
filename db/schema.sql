@@ -59,3 +59,32 @@ create table if not exists disease_scans (
   confidence_band text not null check (confidence_band in ('low','medium','high')),
   created_at timestamptz not null default now()
 );
+
+-- ---- M4: marketplace ----
+
+create table if not exists listings (
+  id uuid primary key default gen_random_uuid(),
+  owner_id uuid not null references users(id) on delete cascade,
+  title text not null,
+  region_id int not null references regions(id),
+  location_text text not null default '',
+  lat numeric,
+  lng numeric,
+  size_sotka numeric not null,
+  water_availability text not null check (water_availability in ('none','rain','limited','reliable')),
+  rental_terms text not null default '',
+  contact_telegram text not null,
+  status text not null default 'active' check (status in ('active','closed')),
+  created_at timestamptz not null default now()
+);
+
+create table if not exists listing_photos (
+  id uuid primary key default gen_random_uuid(),
+  listing_id uuid not null references listings(id) on delete cascade,
+  url text not null,
+  sort_order int not null default 0
+);
+
+create index if not exists idx_listings_region on listings(region_id);
+create index if not exists idx_listings_status on listings(status);
+create index if not exists idx_listing_photos_listing on listing_photos(listing_id);

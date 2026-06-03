@@ -63,20 +63,20 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Commit, push, open MR, merge, update todo.md
 
 ## feature/marketplace  (M4)
-- [ ] Add `listings` + `listing_photos` tables to schema
-- [ ] Build `POST /listings` (create, owner = current user)
-- [ ] Build `GET /listings` with filters (region, size range, water) + pagination
-- [ ] Build `GET /listings/:id` (full detail + photos + contact)
-- [ ] Build `PATCH /listings/:id` and `DELETE /listings/:id` (owner-only)
-- [ ] Build listing image upload (1–5 photos)
-- [ ] Build Marketplace Feed screen (cards + filter bar)
-- [ ] Build Filters screen/sheet
-- [ ] Build Listing Detail screen with photo gallery
-- [ ] Implement "Contact owner" Telegram deep link
-- [ ] Build Create/Edit Listing form
-- [ ] Build My Listings screen (edit / close / delete)
-- [ ] Verify full owner + seeker flows work end-to-end
-- [ ] Commit, push, open MR, merge, update todo.md
+- [x] Add `listings` + `listing_photos` tables to schema
+- [x] Build `POST /listings` (create, owner = current user)
+- [x] Build `GET /listings` with filters (region, size range, water) + pagination
+- [x] Build `GET /listings/:id` (full detail + photos + contact)
+- [x] Build `PATCH /listings/:id` and `DELETE /listings/:id` (owner-only)
+- [x] Build listing image upload (1–5 photos) — _POST /uploads, local disk store, served at /uploads_
+- [x] Build Marketplace Feed screen (cards + filter bar)
+- [x] Build Filters screen/sheet — _collapsible filter panel (region, water, size range)_
+- [x] Build Listing Detail screen with photo gallery
+- [x] Implement "Contact owner" Telegram deep link
+- [x] Build Create/Edit Listing form
+- [x] Build My Listings screen (edit / close / delete)
+- [x] Verify full owner + seeker flows work end-to-end — _Playwright: feed→detail→create+photo→owner actions→my listings_
+- [x] Commit, push, open MR, merge, update todo.md
 
 ## feature/deployment  (M5)
 - [ ] Deploy API (Render/Railway/Fly) with env vars
